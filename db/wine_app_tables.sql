@@ -19,5 +19,5 @@ CREATE TABLE wines(
     cost_price FLOAT,
     retail_price FLOAT,
     stock INT,
-    producer VARCHAR(255)
+    producer_id INT REFERENCES producers(id)
 );
