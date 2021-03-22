@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
 from models.wine import Wine
 from models.producer import Producer
-import producer_repository 
+import repositories.producer_repository as producer_repository 
 
 
 def save(wine):
@@ -28,3 +28,60 @@ def save(wine):
     id = results[0]['id']
     wine.id = id
     return wine
+
+
+def select(id):
+    wine = None
+    sql = "SELECT * FROM wine WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        producer = producer_repository.select(result['producer_id'])
+        wine = Wine(
+            result['grape_variety'], 
+            producer, 
+            result['description'], 
+            result['cost_price'], 
+            result['retail_price'], 
+            result['stock'], 
+            result['producer'])
+    return wine
+
+
+def select_all():
+    wine = []
+    sql = "SELECT * FROM wine"
+    results = run_sql(sql)
+
+    for row in results:
+        producer = producer_repository.select(row['producer_id'])
+        wine = Wine(
+            row['grape_variety'],
+            producer,
+            row['description'],
+            row['cost_price'],
+            row['retail_price'], 
+            row['stock'], 
+            row['producer'])
+        wine.append(wine)
+    return wine
+
+
+
+def delete_all():
+    sql = "DELETE FROM wine"
+    run_sql(sql)
+
+
+
+def delete(id):
+    sql = "DELETE FROM wine WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+
+# def update(wine):
+#     sql = """
+    

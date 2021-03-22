@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template
 
 from controllers.wine_controller import wine_blueprint
 
@@ -12,4 +12,3 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    

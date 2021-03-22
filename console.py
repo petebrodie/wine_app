@@ -7,3 +7,8 @@ import repositories.producer_repository as producer_repository
 
 wine_repository.delete_all()
 producer_repository.delete_all()
+
+
+
+
+
