@@ -60,3 +60,36 @@ def select_all(id):
 
     return producers
 
+
+
+def delete_all():
+    sql = "DELETE FROM producers"
+    run_sql(sql)
+
+
+
+def delete(id):
+    sql = """
+        DELETE FROM producers
+        WHERE id = %s
+        """
+    values = [id]
+    run_sql(sql, values)
+
+
+
+def update(producer):
+    sql = """
+        UPDATE producers
+        SET (name, phone_number, email, country, region)
+        = (%s, %s, %s, %s, %s,)
+        WHERE id = %s
+        """
+    values = [
+        producer.id,
+        producer.name,
+        producer.phone_number,
+        producer.email, 
+        producer.country,
+        producer.region]
+    run_sql(sql, values)
