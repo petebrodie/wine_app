@@ -82,6 +82,28 @@ def delete(id):
 
 
 
-# def update(wine):
-#     sql = """
+def update(wine):
+    sql = """
+        "UPDATE wine SET 
+        (grape_variety, 
+        producer_id, 
+        description, 
+        cost_price, 
+        retail_price, 
+        stock, 
+        producer) 
+        = (%s, %s, %s, %s, %s, %s, %s) 
+        WHERE id = %s
+        """
+    values = [
+        wine.grape_variety, 
+        wine.producer.id, 
+        wine.description, 
+        wine.cost_price, 
+        wine.retail_price, 
+        wine.stock, 
+        wine.producer, 
+        wine.id]
+    run_sql(sql, values)
+        
     
