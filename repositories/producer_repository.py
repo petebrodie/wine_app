@@ -44,8 +44,8 @@ def select(id):
 
 
 
-def select_all(id):
-    producer = []
+def select_all():
+    producers = []
     sql = "SELECT * FROM producers"
     results = run_sql(sql)
 
@@ -57,7 +57,7 @@ def select_all(id):
             row['email'],
             row['country'],
             row['region'])
-        producer.append(producer)
+        producers.append(producer)
     return producers
 
 

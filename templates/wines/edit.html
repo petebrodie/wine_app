@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/wine/{{ wine.id }}" method="POST">
+
+    <label for="grape_variety">Grape Variety:</label>
+    <input type="text" name="grape_variety" id="grape_variety" value="{{ wine.grape_variety }}">
+
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" value="{{ wine.description }}">
+
+    <label for="cost_price">Cost Price:</label>
+    <input type="text" name="cost_price" id="cost_price" value="{{ wine.cost_price }}">
+
+    <label for="retail_price">Retail Price:</label>
+    <input type="text" name="retail_price" id="retail_price" value="{{ wine.retail_price }}">
+
+    <label for="stock">Stock:</label>
+    <input type="text" name="stock" id="stock" value="{{ wine.stock }}">
+
+    <label for="producer">Producer:</label>
+    <input type="text" name="producer" id="producer" value="{{ wine.producer }}">
+
+    
+
+</form>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

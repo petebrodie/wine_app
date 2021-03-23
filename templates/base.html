@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wine App</title>
+    <title>Cloud Wine</title>
 </head>
 <body>
     <header>
+    
         <nav>
             <ul class="menu">
               <li><a href="/">Home</a></li>
-              <li><a href="/wines">Tasks</a></li>
-              <li><a href="/wines/new">New Task</a></li> 
+              <li><a href="/wines">Inventory</a></li>
+              <li><a href="/wines/new">Edit Wine</a></li> 
             </ul>
           </nav>
     </header>
+  {% block content %}
+  {% endblock %}
     
 </body>
 </html>

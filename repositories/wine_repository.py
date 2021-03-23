@@ -51,7 +51,7 @@ def select(id):
 
 def select_all():
     wine = []
-    sql = "SELECT * FROM wine"
+    sql = "SELECT * FROM wines"
     results = run_sql(sql)
 
     for row in results:
