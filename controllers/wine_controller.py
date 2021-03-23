@@ -46,3 +46,9 @@ def create_wine():
 def delete_wine(id):
     wine_repository.delete(id)
     return redirect('/wines')
+
+@wine_blueprint.route('/wines/<id>/edit', methods=['POST'])
+def edit_wine(id):
+    wine =wine_repository.select(id)
+    producers = producer_repository.select_all()
+    return render_template('/wine/edit.html', wine=wine, producers=producers)

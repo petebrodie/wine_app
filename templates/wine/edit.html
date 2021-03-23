@@ -18,10 +18,15 @@
     <label for="stock">Stock:</label>
     <input type="text" name="stock" id="stock" value="{{ wine.stock }}">
 
-    <label for="producer">Producer:</label>
-    <input type="text" name="producer" id="producer" value="{{ wine.producer }}">
+    <label for="producer_id">Producer:</label>
+    <select name="producer_id" id="producer_id">
+    {% for producer in producers %}
+        <option value="{{producer.id}}"
+        {% if wine.producer.id == producer.id %} selected="selected" {% endif %}>{{producer.name}}</option>
+    {% endfor %}
+    </select>
 
-    
+    <button type="submit">Update wine</button>
 
 </form>
 
