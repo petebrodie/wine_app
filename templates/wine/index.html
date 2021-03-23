@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+    <div>
+    <h1>GET IN MY TUMMY</h1>
+    {% for wine in all_wines %}
+    <p>{{wine.grape_variety}}</p>
+
+    <form action="/wines/{{wine.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+        
+    {% endfor %}
+
+    
+    </div>
+
+
+
+
+{% endblock %}

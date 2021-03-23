@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS producers;
 CREATE TABLE producers(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    phone_number INT,
+    phone_number VARCHAR(255),
     email VARCHAR(255),
     country VARCHAR(255),
     region VARCHAR(255)

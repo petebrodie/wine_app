@@ -6,7 +6,7 @@ from models.wine import Wine
 def save(producer):
     sql = """
         INSERT INTO 
-        producers (name) 
+        producers (name, phone_number, email, country, region) 
         VALUES (%s, %s, %s, %s, %s) 
         RETURNING *
         """
@@ -17,7 +17,7 @@ def save(producer):
         producer.country, 
         producer.region]
     results = run_sql(sql, values)
-    id = results[0]['id']
+    producer.id = results[0]['id']
     return producer
 
 
@@ -32,14 +32,13 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        producer = Producer(
-            result['id'], 
+        producer = Producer( 
             result['name'], 
             result['phone_number'], 
             result['email'], 
             result['country'], 
-            result['region'])
-
+            result['region'],
+            result['id'])
     return producer
 
 
@@ -51,12 +50,12 @@ def select_all():
 
     for row in results:
         producer = Producer(
-            row['id'],
             row['name'],
             row['phone_number'],
             row['email'],
             row['country'],
-            row['region'])
+            row['region'],
+            row['id'])
         producers.append(producer)
     return producers
 

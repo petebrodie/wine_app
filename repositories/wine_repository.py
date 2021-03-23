@@ -32,25 +32,25 @@ def save(wine):
 
 def select(id):
     wine = None
-    sql = "SELECT * FROM wine WHERE id = %s"
+    sql = "SELECT * FROM wines WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 
     if result is not None:
         producer = producer_repository.select(result['producer_id'])
         wine = Wine(
-            result['grape_variety'], 
-            producer, 
+            result['grape_variety'],
             result['description'], 
             result['cost_price'], 
             result['retail_price'], 
-            result['stock'], 
-            result['producer'])
+            result['stock'],
+            producer,
+            result['id'])
     return wine
 
 
 def select_all():
-    wine = []
+    wines = []
     sql = "SELECT * FROM wines"
     results = run_sql(sql)
 
@@ -58,25 +58,25 @@ def select_all():
         producer = producer_repository.select(row['producer_id'])
         wine = Wine(
             row['grape_variety'],
-            producer,
             row['description'],
             row['cost_price'],
             row['retail_price'], 
-            row['stock'], 
-            row['producer'])
-        wine.append(wine)
-    return wine
+            row['stock'],
+            producer,
+            row['id'])
+        wines.append(wine)
+    return wines
 
 
 
 def delete_all():
-    sql = "DELETE FROM wine"
+    sql = "DELETE FROM wines"
     run_sql(sql)
 
 
 
 def delete(id):
-    sql = "DELETE FROM wine WHERE id = %s"
+    sql = "DELETE FROM wines WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 
@@ -84,7 +84,7 @@ def delete(id):
 
 def update(wine):
     sql = """
-        "UPDATE wine SET 
+        "UPDATE wines SET 
         (grape_variety, 
         producer_id, 
         description, 
