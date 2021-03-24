@@ -52,3 +52,19 @@ def edit_wine(id):
     wine =wine_repository.select(id)
     producers = producer_repository.select_all()
     return render_template('/wine/edit.html', wine=wine, producers=producers)
+
+# update function
+
+@wine_blueprint.route('/wines/<id>', methods=['POST'])
+def update_wine(id):
+    producer_id = request.form["producer_id"]
+    grape_variety = request.form["grape_variety"]
+    description = request.form["description"]
+    cost_price = float(request.form["cost_price"])
+    retail_price = float(request.form["retail_price"])
+    stock = request.form["stock"]
+
+    producer = producer_repository.select(producer_id)
+    wine = Wine(producer_id, grape_variety, description, cost_price, retail_price, stock, id )
+    wine_repository.update(wine)
+    return redirect('/wines')
