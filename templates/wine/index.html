@@ -4,9 +4,21 @@
 
 
     <div>
-    <h1>CLOUD WINE</h1>
     {% for wine in all_wines %}
-    <p>{{wine.grape_variety}}</p>
+    
+   
+    <p>{{ wine.grape_variety }}</p>  
+    <p>{{ wine.stock }}</p>  
+    <p>{{ wine.description }}</p>
+    <p>{{ wine.cost_price }}</p>
+    <p>{{ wine.retail_price }}</p>
+
+
+    {% if wine.stock == 0 %}
+    <p> Out of stock! </p>
+    {% elif wine.stock <= 3 %}
+    <p> low stock </p>
+    {% endif %}
 
     <form action="/wines/{{wine.id}}/edit" method="POST">
         <button type="submit">Edit</button>
