@@ -4,13 +4,13 @@
 
 
 <div>
-    <h1>CLOUD WINE</h1>
+    <h1>Producers</h1>
     {% for producer in all_producers %}
-    <p>{{producer.name}}</p>
-    <p>{{producer.phone_number}}</p>
-    <p>{{producer.email}}</p>
-    <p>{{producer.country}}</p>
-    <p>{{producer.region}}</p>
+    <p><span class="title">Producer: </span>{{producer.name}}</p>
+    <p><span class="title">Contact Number: : </span>{{producer.phone_number}}</p>
+    <p><span class="title">Contact Email: </span>{{producer.email}}</p>
+    <p><span class="title">Country: </span>{{producer.country}}</p>
+    <p><span class="title">Region: </span>{{producer.region}}</p>
 
     <form action="/producers/{{producer.id}}/edit" method="POST">
         <button type="submit">Edit</button>

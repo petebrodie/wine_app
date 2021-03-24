@@ -3,6 +3,19 @@ body {
     background-color: lightblue;
 }
 
+.title {
+  font-weight: 700;
+}
+
+.out-of-stock {
+  color: red;
+  font-weight: 600;
+}
+.low-stock {
+  font-weight: 600;
+  color: green;
+}
+
 
 
 
