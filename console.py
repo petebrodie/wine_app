@@ -61,6 +61,3 @@ wine10 = Wine("Cava", "Light, red berry fruit with hint of vanilla", 6.46, 15.99
 wine_repository.save(wine10)
 
 
-
-
-pdb.set_trace()

@@ -81,7 +81,7 @@ def update(producer):
     sql = """
         UPDATE producers
         SET (name, phone_number, email, country, region)
-        = (%s, %s, %s, %s, %s,)
+        = (%s, %s, %s, %s, %s)
         WHERE id = %s
         """
     values = [
