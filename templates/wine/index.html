@@ -6,7 +6,7 @@
     <div>
     {% for wine in all_wines %}
     
-   
+    <p><span class="title">Producer: </span> {{ wine.producer.name }}</p>  
     <p><span class="title">Grape Variety: </span> {{ wine.grape_variety }}</p>  
     <p><span class="title">Wine Stock: </span>{{ wine.stock }}</p>  
     <p><span class="title">Tasting Note: </span>{{ wine.description }}</p>
