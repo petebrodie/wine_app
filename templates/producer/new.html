@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- INSERT FORM -->
+
+<h1>Cloud Wine</h1>
+    <h3>Digital wine inventory app</h3>
+
+<form action="/producers" method="POST">
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name">
+
+    <label for="phone_number">Phone Number:</label>
+    <input type="text" name="phone_number" id="phone_number">
+
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email">
+
+    <label for="country">Country:</label>
+    <input type="text" name="country" id="country">
+
+    <label for="region">Region:</label>
+    <input type="text" name="region" id="region" >
+
+    {% for wine in wines %}
+        <option value="{{ wine.id }}">{{ wine.name }}</option>
+    {% endfor %}
+
+    </select>
+
+    <button type="submit">Add Producer</button>
+    
+
+</form>
+
+
+{% endblock %}
