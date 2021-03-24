@@ -65,6 +65,6 @@ def update_wine(id):
     stock = request.form["stock"]
 
     producer = producer_repository.select(producer_id)
-    wine = Wine(producer_id, grape_variety, description, cost_price, retail_price, stock, id )
+    wine = Wine(grape_variety, description, cost_price, retail_price, stock, producer, id )
     wine_repository.update(wine)
     return redirect('/wines')

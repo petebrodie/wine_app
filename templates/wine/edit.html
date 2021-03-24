@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/wine/{{ wine.id }}" method="POST">
+<form action="/wines/{{ wine.id }}" method="POST">
 
     <label for="grape_variety">Grape Variety:</label>
     <input type="text" name="grape_variety" id="grape_variety" value="{{ wine.grape_variety }}">

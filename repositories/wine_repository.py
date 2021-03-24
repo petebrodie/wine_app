@@ -84,25 +84,23 @@ def delete(id):
 
 def update(wine):
     sql = """
-        "UPDATE wines SET 
-        (grape_variety, 
-        producer_id, 
+        UPDATE wines SET 
+        (grape_variety,  
         description, 
         cost_price, 
         retail_price, 
-        stock, 
-        producer) 
-        = (%s, %s, %s, %s, %s, %s, %s) 
+        stock,
+        producer_id) 
+        = (%s, %s, %s, %s, %s, %s) 
         WHERE id = %s
         """
     values = [
         wine.grape_variety, 
-        wine.producer.id, 
         wine.description, 
         wine.cost_price, 
         wine.retail_price, 
         wine.stock, 
-        wine.producer, 
+        wine.producer.id,
         wine.id]
     run_sql(sql, values)
         
