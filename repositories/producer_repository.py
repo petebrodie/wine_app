@@ -85,10 +85,10 @@ def update(producer):
         WHERE id = %s
         """
     values = [
-        producer.id,
         producer.name,
         producer.phone_number,
         producer.email, 
         producer.country,
-        producer.region]
+        producer.region,
+        producer.id]
     run_sql(sql, values)

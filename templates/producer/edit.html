@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--  name, phone_number, email, country, region, id = None -->
+
+<form action="/producer/{{ producer.id }}" method="POST"></form>
+
+<label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="{{ producer.name }}">
+
+    <label for="phone_number">Phone number:</label>
+    <input type="text" name="phone_number" id="phone_number" value="{{ producer.phone_number }}">
+
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" value="{{ producer.email }}">
+
+    <label for="country">Country:</label>
+    <input type="text" name="country" id="country" value="{{ producer.country }}">
+
+    <label for="region">Region:</label>
+    <input type="text" name="region" id="region" value="{{ producer.region }}">
+
+
+    {% for producer in producers %}
+        <option value="{{wine.id}}"
+        {% if producer.wine.id == wine.id %} selected="selected" {% endif %}>{{wine.name}}
+        </option>
+    {% endfor %}
+    
+    </select>
+
+    <button type="submit">Update Producer</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
